@@ -20,7 +20,7 @@ The code includes MATLAB implementations of (i) gradient-based optimization of d
 | `opt_bcr_exact_single_recipient_pc.mlx` | Exact optimization solution for the single-recipient case under the PC update rule. |
 | `opt_bcr_exact_single_recipient_im.mlx` | Exact optimization solution for the single-recipient case under the IM update rule. |
 | `opt_bcr_exact_test.mlx` | Demo script that loads an example network, calculates remeeting times, and calls `opt_bcr_exact_single_recipient`. |
-| `getBCratioAsymInteract.m` | Calculates the critical benefit-to-cost ratio for a replacement graph and a potentially different interaction graph. This function supports asymmetric interaction structures and allows isolated nodes in the interaction graph. It is used to generate the results shown in **Fig. 2c and Fig. 4e**. |
+| `getBCratioAsymInteract.m` | Calculates the critical benefit-to-cost ratio for a replacement graph with strategic allocations of social goods. |
 | `findRemeetingTimes.m` | Calculates random-walk remeeting times from the replacement-network adjacency matrix (supplied files for the above programs) |
 |                                         | product graph used by `findRemeetingTimes.m`.                |
 | `normalizedLaplacian.m` | Calculates the normalized graph Laplacian used in the remeeting-time and threshold calculations. |
