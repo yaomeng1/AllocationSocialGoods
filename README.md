@@ -14,15 +14,15 @@ The code includes MATLAB implementations of (i) gradient-based optimization of d
 |---|---|
 | `opt_RMSprop_single_recipient.mlx` | Runs RMSprop-style gradient-based optimization for the single-recipient donation case. |
 | `opt_RMSprop_multiple_recipient.mlx` | Runs RMSprop-style gradient-based optimization for the multiple-recipient donation case. |
-| `gradient_single_recipient.mlx` | Calculates the objective and gradient used by the single-recipient optimization routine (used in `opt_RMSprop_single_recipient.mlx`). |
-| `gradient_multiple_recipients.mlx` | Calculates the objective and gradient used by the multiple-recipient optimization routine (used in `opt_RMSprop_multiple_recipient.mlx`). |
+| `gradient_single_recipient.mlx` | Calculates the objective and gradient used by the single-recipient optimization routine (called in `opt_RMSprop_single_recipient.mlx`). |
+| `gradient_multiple_recipients.mlx` | Calculates the objective and gradient used by the multiple-recipient optimization routine (called in `opt_RMSprop_multiple_recipient.mlx`). |
 | `opt_bcr_exact_single_recipient.mlx` | Exact optimization solution for the single-recipient case under the DB update rule (applied in the main text). |
 | `opt_bcr_exact_single_recipient_pc.mlx` | Exact optimization solution for the single-recipient case under the PC update rule. |
 | `opt_bcr_exact_single_recipient_im.mlx` | Exact optimization solution for the single-recipient case under the IM update rule. |
 | `opt_bcr_exact_test.mlx` | Demo script that loads an example network, calculates remeeting times, and calls `opt_bcr_exact_single_recipient`. |
 | `getBCratioAsymInteract.m` | Calculates the critical benefit-to-cost ratio for a replacement graph with strategic allocations of social goods. |
 | `findRemeetingTimes.m` | Calculates random-walk remeeting times from the replacement-network adjacency matrix (supplied files for the above programs) |
-|                                         | product graph used by `findRemeetingTimes.m`.                |
+| `cartProd.m` | product graph used by `findRemeetingTimes.m`.                |
 | `normalizedLaplacian.m` | Calculates the normalized graph Laplacian used in the remeeting-time and threshold calculations. |
 
 Some `.mlx` files define functions called by other scripts; they are not necessarily intended to be run directly.
