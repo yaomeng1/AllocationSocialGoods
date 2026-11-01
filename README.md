@@ -85,7 +85,6 @@ The settings currently shown in the script include:
 - `alpha = 0.9`: moving-average parameter for squared gradients;
 - `epsilon = 1e-6`: numerical stabilizer;
 - `rho = 1.01`: growth factor for penalty parameters;
-- initial `sigma = 1` and `gamma = 10^-2`.
 
 The script stops early when the average absolute update falls below its convergence threshold. It creates variables including `bcr_array`, `f_penalty_array`, `hidden_t`, `mInt_process`, and `mInt_opt`. 
 
@@ -102,7 +101,6 @@ The settings currently shown in the script include:
 - `alpha = 0.9`;
 - `epsilon = 1e-6`;
 - `rho = 1.01`;
-- initial `sigma = 1` and `gamma = 10^-2`.
 
 The script stops early when the average absolute update falls below its convergence threshold. It creates variables including `bcr_array`, `f_penalty_array`, `hidden_t`, `mInt_process`, and `mInt_opt`. 
 
