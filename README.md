@@ -2,8 +2,6 @@
 
 This repository contains code for paper "Strategic allocation of social goods in the evolution of cooperation".
 
-Repository: https://github.com/yaomeng1/AllocationSocialGoods
-
 The code includes MATLAB implementations of (i) gradient-based optimization of donation structures, (ii) exact optimization for single-recipient donation structures, and (iii) calculation of critical benefit-to-cost ratios for asymmetric interaction networks. 
 
 ## Repository contents
