@@ -45,13 +45,6 @@ Some `.mlx` files define functions called by other scripts; they are not necessa
 2. For MATLAB analyses, open MATLAB and set the repository directory as the Current Folder, or add it to the MATLAB path.
 3. Ensure the relevant `.mat` file is in the current working directory when running a script that loads it by filename.
 
-Example MATLAB setup:
-
-```matlab
-cd('path/to/AllocationSocialGoods')
-addpath(pwd)
-```
-
 ## Reproducing selected results
 
 ### 1. Exact single-recipient optimization
