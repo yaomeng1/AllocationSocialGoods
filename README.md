@@ -46,7 +46,7 @@ The Python scripts import helper functions from `utils`. The two BA scripts use 
 
 ### MATLAB
 
-- **MATLAB:** Use a MATLAB release that supports Live Scripts (`.mlx`) and the syntax used in the code. MATLAB R2023b or later is a reasonable starting point; the code has not been tested here across MATLAB releases, so the exact minimum supported version should be confirmed by running the scripts in the target environment.
+- **MATLAB:** Use a MATLAB release that supports Live Scripts (`.mlx`) and the syntax used in the code. 
 - **Operating system:** MATLAB-compatible operating systems should be suitable.
 
 ### Python simulations
