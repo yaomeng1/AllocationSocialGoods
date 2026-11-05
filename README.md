@@ -2,7 +2,7 @@
 
 This repository contains code for paper "Strategic allocation of social goods in the evolution of cooperation".
 
-The code includes MATLAB implementations of (i) gradient-based optimization of donation structures, (ii) exact optimization for single-recipient donation structures, and (iii) calculation of critical benefit-to-cost ratios for asymmetric interaction networks. 
+The code includes MATLAB implementations of (i) gradient-based optimization of donation structures, (ii) exact optimization for single-recipient donation structures, and (iii) calculation of critical benefit-to-cost ratios for asymmetric interaction networks. It also includes Python scripts for evolutionary simulations.
 
 ## Repository contents
 
@@ -31,6 +31,16 @@ Some `.mlx` files define functions called by other scripts; they are not necessa
 |---|---|
 | `BA_n20_k6_idx2.mat` | Example network adjacency matrix, stored in variable `mAdj` (`20 × 20`). |
 | `BA_n100_k6_idx0.mat` | Example network adjacency matrix, stored in variable `mAdj` (`100 × 100`). |
+| `BA_single_recipient_to_rand_n20_k6_idx2_1.mat` | Additional input required by `ba_fix_prob_donate_2rand.py`; contains the random single-recipient donation matrix `mInt_rand`. |
+
+### Python simulation scripts
+
+| File                                 | Purpose                                                      |
+| ------------------------------------ | ------------------------------------------------------------ |
+| `ba_fix_prob_donate_2allneighbor.py` | Simulates evolutionary dynamics on a BA network for the donation-to-all-neighbors strategy and estimates the fixation probability over a range of benefit values. |
+| `ba_fix_prob_donate_2rand.py`        | Simulates evolutionary dynamics on a BA network for the random single-recipient donation strategy and estimates the fixation probability over a range of benefit values. |
+
+The Python scripts import helper functions from `utils`. The two BA scripts use MATLAB (`.mat`) input files directly; their specific input files are described below. 
 
 ## Software requirements
 
@@ -38,6 +48,20 @@ Some `.mlx` files define functions called by other scripts; they are not necessa
 
 - **MATLAB:** Use a MATLAB release that supports Live Scripts (`.mlx`) and the syntax used in the code. MATLAB R2023b or later is a reasonable starting point; the code has not been tested here across MATLAB releases, so the exact minimum supported version should be confirmed by running the scripts in the target environment.
 - **Operating system:** MATLAB-compatible operating systems should be suitable.
+
+### Python simulations
+
+The Python scripts use Python and the following packages:
+
+- NumPy
+- NetworkX
+- Matplotlib
+- Numba
+- SciPy
+
+They also import project-specific helper functions from `utils` (`rand_pick_list`, `nbr_dict_mat`, and `edge_list_array`). 
+
+**Compatibility note:** The scripts use Numba-compiled functions and multiprocessing.
 
 ## Setup
 
@@ -135,6 +159,17 @@ bcr = getBCratioAsymInteract(mAdj);
 
 This minimal example uses the same adjacency matrix for replacement and interaction. To reproduce Fig. 2c and Fig. 4e, use the replacement matrix, interaction matrix, and parameter settings used for those panels in the manuscript.
 
+### 5. Python fixation-probability simulations
+
+The Python files are simulation entry points. They require `utils.py` and the input data specified below.
+
+#### BA networks
+
+Both BA scripts load `BA_n20_k6_idx2.mat`, which contains the replacement-network adjacency matrix `mAdj`.
+
+- `ba_fix_prob_donate_2allneighbor.py` uses the edges of `mAdj` as the donation/interactions edges, corresponding to donation to all neighbors. It does not require a separate interaction-matrix file.
+- `ba_fix_prob_donate_2rand.py` additionally loads `BA_single_recipient_to_rand_n20_k6_idx2_1.mat` and reads the variable `mInt_rand` as the random single-recipient donation structure. This additional `.mat` file must be placed in the working directory.
+
 ## Input-data notes
 
 The MATLAB `.mat` files contain an adjacency matrix named `mAdj`. For the example files, its dimensions are `20 × 20` or `100 × 100`. The helper function `normalizedLaplacian.m` symmetrizes its input using `max(mAdj, mAdj')`, so the replacement graph is treated as undirected by these calculations.
@@ -149,6 +184,7 @@ The MATLAB `.mat` files contain an adjacency matrix named `mAdj`. For the exampl
 
 | Manuscript result | Main code | Notes |
 |---|---|---|
+| Fig. 2b | `ba_fix_prob_donate_2rand.py`  `ba_fix_prob_donate_2allneighbor.py` | Fixation probability numerical simulations. |
 | Fig. 2c | `getBCratioAsymInteract.m` | Critical benefit-to-cost ratio for asymmetric interaction structure. |
 | Fig. 3a,b | `opt_bcr_exact_test.mlx`, `opt_bcr_exact_single_recipient.mlx` | Exact single-recipient optimization demo file. |
 | Fig. 3d and Fig. 4c,d | `opt_bcr_exact_single_recipient.mlx` | Exact single-recipient solution. |
@@ -158,6 +194,8 @@ The MATLAB `.mat` files contain an adjacency matrix named `mAdj`. For the exampl
 | Gradient-based multiple-recipient optimization | `opt_RMSprop_multiple_recipient.mlx`, `gradient_multiple_recipients.mlx` | RMSprop-style update and penalty terms. |
 | PC exact solution | `opt_bcr_exact_single_recipient_pc.mlx` | Exact single-recipient optimization under the PC update rule. |
 | IM exact solution | `opt_bcr_exact_single_recipient_im.mlx` | Exact single-recipient optimization under the IM update rule. |
+
+
 
 ## License
 
