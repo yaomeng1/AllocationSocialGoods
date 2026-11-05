@@ -93,7 +93,7 @@ if __name__ == "__main__":
     data = scio.loadmat("BA_n20_k6_idx2.mat")
     static_matrix = data["mAdj"]
     # ---------------------------  graph construction  --------------------------
-    graph = nx.from_numpy_matrix(static_matrix)
+    graph = nx.from_numpy_array(static_matrix)
     nbrs_dict = nx.to_dict_of_lists(graph)
     nbrs_mat, deg_array = nbr_dict_mat(nbrs_dict)
     nodesnum = static_matrix.shape[1]

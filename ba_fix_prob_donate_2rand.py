@@ -92,7 +92,7 @@ if __name__ == "__main__":
     mInt = data["mInt_rand"]
 
     # ---------------------------  graph construction  --------------------------
-    graph = nx.from_numpy_matrix(static_matrix)
+    graph = nx.from_numpy_array(static_matrix)
     nbrs_dict = nx.to_dict_of_lists(graph)
     nbrs_mat, deg_array = nbr_dict_mat(nbrs_dict)
     nodesnum = static_matrix.shape[1]
